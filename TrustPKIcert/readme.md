@@ -23,14 +23,15 @@ To be placed in /root/root-ca.crt for the example
 
 Expected result:
 
-```Certificate Nickname Trust Attributes
-SSL,S/MIME,JAR/XPI
+```
+Certificate Nickname    Trust Attributes
+                        SSL,S/MIME,JAR/XPI
 
-RootCA CT,,
+RootCA                   CT,,
 ```
 5) Connect with the browser. Proceed as usual. There should be no warning when connecting, even in Browser Security mode "High"
 To check the certificate information, activate the developer tools (see dev-tools folder).
-Once the developer tools are activated on the page to be tested, go to the Security tab (a refresh of the page may be necessary). The page should appear as secure (green padlock).
+Once the developer tools are activated on the page to be tested, go to the Security tab (a refresh of the page may be necessary). The page should appear as secure (green lock).
 
 6) Disable Docker (via WBM or via command below)
 
