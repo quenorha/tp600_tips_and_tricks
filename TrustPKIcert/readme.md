@@ -7,16 +7,18 @@ quenorha/nsstools image can be used for this purpose, or you can build yourself 
 Docker activation will be necessary just for the time to install the certificate.
 
 1) Activate Docker (via WBM or via the command below)
+
 ```/etc/config-tools/config_docker activate```
 
-2) Transfer the Root CA certificate (PEM format, .crt extension) to the screen file system, via SFTP for example.
+3) Transfer the Root CA certificate (PEM format, .crt extension) to the screen file system, via SFTP for example.
 To be placed in /root/root-ca.crt for the example
 
-3) Install the certificate in the NSS database.
+4) Install the certificate in the NSS database.
 
 ```docker run --rm -it -v /root/root-ca.crt:/root/root-ca.crt -v /root/.pki/nssdb:/root/.pki/nssdb quenorha/nsstools certutil -A -n "RootCA" -t "TC,," -d sql:/root/.pki/nssdb -i /root/root-ca.crt```
 
 4) Verify certificate installation
+   
 ```docker run --rm -it -v /root/.pki/nssdb:/root/.pki/nssdb quenorha/nsstools certutil -L -d /root/.pki/nssdb```
 
 Expected result:
